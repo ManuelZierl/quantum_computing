@@ -44,7 +44,7 @@ def shor(n):
 
 
 
-
+# todo ...
 
 x = math.e**(2*math.pi*1j*0/5)
 print(x)

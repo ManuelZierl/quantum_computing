@@ -20,6 +20,7 @@ Q_BITS = 5
 
 # ORACLE = Matrix([[0] * (2 ** Q_BITS)])
 R = randint(0, (2 ** Q_BITS)) - 1
+print(R)
 a = np.identity(2 ** Q_BITS, dtype=int)
 a[R][R] = -1
 ORACLE = Matrix(a)
@@ -32,6 +33,15 @@ D_n = -H_n * R_n * H_n
 STATE = Matrix([1] + [0] * ((2 ** Q_BITS) - 1))  # )
 
 STATE = H_n * STATE
+STATE = ORACLE * STATE
+STATE = D_n * STATE
+
+print(STATE)
+
+STATE = ORACLE * STATE
+STATE = D_n * STATE
+
+print(measure(STATE))
 
 # use the oracle -> STATE = ORACLE * STATE
 # use the mirror on average -> STATE = D_n * STATE
